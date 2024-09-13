@@ -32,9 +32,8 @@ export const usePortal = () => {
       'fixed',
       'inset-0',
       'overflow-y-auto',
-      'backdrop-blur-sm',
-      'bg-black',
-      'bg-opacity-30',
+      'bg-[#908A8A80]',
+      'bg-opacity-50',
       '-z-10'
     )
     backdrop.addEventListener('click', closeHandler)

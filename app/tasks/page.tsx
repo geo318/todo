@@ -1,4 +1,4 @@
-import { AddTaskButton, TaskItem } from '@/components'
+import { AddTask, AddTaskButton, TaskItem } from '@/components'
 
 const tasks = [
   {
@@ -56,6 +56,7 @@ export default function Tasks() {
         </article>
       </div>
       <AddTaskButton />
+      <AddTask />
     </>
   )
 }

@@ -13,7 +13,7 @@ export const Contents: React.FC<ContentsProps> = ({ render }) => {
 
   return (
     <div className='flex justify-center w-full'>
-      <div className='max-h-[80vh] overflow-y-auto min-w-[30rem] mt-10 bg-white rounded-lg py-4 '>
+      <div className='max-h-[80vh] overflow-y-auto min-w-[100dvw] px-5 mt-[45dvh]'>
         {render({ closeHandler })}
       </div>
     </div>
