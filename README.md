@@ -9,15 +9,6 @@ This is a modern Next.js application built using the App Router and Server Actio
 - Drizzle ORM for database operations
 - SQLite database
 - Tailwind CSS for styling
-- Optimized for performance and scalability
-
-## Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-- [Node.js](https://nodejs.org/) (version 18 or higher)
-- npm or yarn installed globally
-- SQLite installed locally (if you want to manage the database directly)
 
 ## Getting Started
 
