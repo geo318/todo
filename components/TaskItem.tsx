@@ -22,7 +22,7 @@ export const TaskItem: React.FC<Task> = ({
         <ChevronIcon
           onClick={() => setIsExpanded((prev) => !prev)}
           className={twMerge(
-            'transition-transform',
+            'transition-transform cursor-pointer',
             !isExpanded ? 'rotate-180' : 'rotate-0'
           )}
         />

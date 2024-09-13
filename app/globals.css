@@ -11,3 +11,31 @@ body {
     text-wrap: balance;
   }
 }
+
+.modal {
+  animation: modal 150ms ease-in-out;
+}
+
+@keyframes modal {
+  from {
+    transform: translateY(10%);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.backdrop {
+  animation: backdrop 250ms ease-in-out;
+}
+
+@keyframes backdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
