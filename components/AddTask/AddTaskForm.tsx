@@ -22,6 +22,7 @@ export const AddTaskForm = (props: { closeHandler: () => void }) => {
         type='text'
         placeholder='Task name'
         className='overflow-hidden p-2 w-full text-xs bg-white rounded-md border border-indigo-500 border-solid text-zinc-400'
+        required
       />
 
       <div className='mt-2.5'>
@@ -32,6 +33,7 @@ export const AddTaskForm = (props: { closeHandler: () => void }) => {
           rows={4}
           className='overflow-hidden px-3 py-5 w-full max-w-full text-xs font-semibold bg-indigo-50 text-slate-500'
           style={{ boxShadow: 'box-shadow: 1px 1px 4px 0px #30507D40 inset' }}
+          required
         />
       </div>
       <button
