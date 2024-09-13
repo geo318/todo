@@ -12,7 +12,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
   isExpanded,
 }) => {
   return (
-    <article className='flex overflow-hidden flex-col p-3 mt-3 w-full rounded-xl bg-slate-50 shadow-[0px_2px_8px_rgba(106,108,224,0.26)]'>
+    <li className='flex overflow-hidden flex-col p-3 w-full rounded-xl bg-slate-50 shadow-[0px_2px_8px_rgba(106,108,224,0.26)]'>
       <div className='flex gap-5 justify-between text-sm font-medium text-slate-600'>
         <h3>{title}</h3>
         <ChevronIcon />
@@ -32,7 +32,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({
           <CheckMarkIcon />
         </div>
       </div>
-    </article>
+    </li>
   )
 }
 

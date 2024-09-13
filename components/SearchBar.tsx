@@ -2,7 +2,7 @@ import { SearchIcon } from './icons'
 
 export const SearchBar: React.FC = () => {
   return (
-    <form className='flex overflow-hidden gap-5 justify-between px-2 py-1.5 mt-4 w-full bg-white rounded-md'>
+    <form className='flex overflow-hidden gap-5 justify-between px-2 py-1.5 mt-4 w-full bg-white rounded-md shrink-0'>
       <label htmlFor='search' className='sr-only'>
         Search for notes
       </label>
