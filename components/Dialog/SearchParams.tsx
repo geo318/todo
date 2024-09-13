@@ -1,6 +1,6 @@
 'use client'
 
-import React, { memo, ReactNode, useContext } from 'react'
+import React, { ReactNode } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { DialogContext } from './Context'
 
