@@ -36,7 +36,7 @@ export const TaskItem: React.FC<Task> = ({
       >
         <div className='overflow-hidden'>
           <p
-            className='p-3 mt-8 text-xs font-semibold bg-indigo-50 text-slate-500'
+            className='p-3 mt-8 text-xs font-semibold bg-[#E8F1FD] text-[#6C86A8]'
             style={{ boxShadow: '1px 1px 4px 0px #30507D40 inset' }}
           >
             {description}
@@ -56,7 +56,7 @@ export const TaskItem: React.FC<Task> = ({
             </button>
           </form>
         </div>
-        <div className='flex items-center gap-1 text-xs font-medium text-slate-500'>
+        <div className='flex items-center gap-1 text-xs font-medium text-[#6C86A8]'>
           <form
             action={!completed ? completeTask.bind(null, id) : undefined}
             className='flex justify-center'

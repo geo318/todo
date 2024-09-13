@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main className='flex overflow-hidden flex-col items-start py-8 pb-2 px-5 mx-auto w-full bg-indigo-50 max-w-lg h-dvh'>
+        <main className='flex overflow-hidden flex-col items-start py-8 pb-2 px-5 mx-auto w-full bg-[#E8F1FD] max-w-lg h-dvh'>
           <div className='shrink-0 flex flex-col self-stretch'>
             <Header />
             <SearchBar />

@@ -25,7 +25,7 @@ export const SearchBar = () => {
       >
         <button
           type='submit'
-          className='flex gap-2.5 items-center p-1.5 bg-indigo-500 rounded-md h-[26px] w-[26px]'
+          className='flex gap-2.5 items-center p-1.5 bg-[#6A6CE0] rounded-md h-[26px] w-[26px]'
         >
           <SearchIcon />
         </button>
