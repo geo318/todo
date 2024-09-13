@@ -16,7 +16,9 @@ export const AddTaskForm = (props: { closeHandler: () => void }) => {
           <CloseIcon onClick={props.closeHandler} className='cursor-pointer' />
         </div>
       </section>
+
       <input
+        name='name'
         type='text'
         placeholder='Task name'
         className='overflow-hidden p-2 w-full text-xs bg-white rounded-md border border-indigo-500 border-solid text-zinc-400'

@@ -6,9 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "drizzle-kit generate",
+    "migrations:push": "node -r esbuild-register ./database/migrate.ts",
+    "db:push": "drizzle-kit push",
+    "migrations:drop": "drizzle-kit drop --config=drizzle.config.ts"
   },
   "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "drizzle-orm": "^0.33.0",
     "next": "14.2.11",
     "react": "^18",
     "react-dom": "^18",
@@ -16,9 +22,11 @@
     "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "drizzle-kit": "^0.24.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.11",
     "postcss": "^8",
