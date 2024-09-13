@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { HistoryIcon, TaskIcon } from './icons'
 import { usePathname } from 'next/navigation'
 import { ROUTES } from '@/app/config'
-import { twMerge } from 'tw-merge'
+import { twMerge } from 'tailwind-merge'
 
 export const Nav = () => {
   const pathname = usePathname()
