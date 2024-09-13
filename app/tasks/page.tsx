@@ -1,49 +1,8 @@
+import { getTasks } from '@/actions'
 import { AddTask, AddTaskButton, TaskItem } from '@/components'
 
-const tasks = [
-  {
-    id: 1,
-    title: 'Dorem ipsum dolor sit',
-    description:
-      'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit consectetur adipiscing.',
-    isExpanded: true,
-  },
-  {
-    id: 2,
-    title: 'Dorem ipsum dolor sit',
-    description: '',
-    isExpanded: false,
-  },
-  {
-    id: 3,
-    title: 'Dorem ipsum dolor sit',
-    description:
-      'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit consectetur adipiscing.',
-    isExpanded: true,
-  },
-  {
-    id: 1,
-    title: 'Dorem ipsum dolor sit',
-    description:
-      'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit consectetur adipiscing.',
-    isExpanded: true,
-  },
-  {
-    id: 2,
-    title: 'Dorem ipsum dolor sit',
-    description: '',
-    isExpanded: false,
-  },
-  {
-    id: 3,
-    title: 'Dorem ipsum dolor sit',
-    description:
-      'Borem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit consectetur adipiscing.',
-    isExpanded: true,
-  },
-]
-
-export default function Tasks() {
+export default async function Tasks() {
+  const tasks = await getTasks()
   return (
     <>
       <div className='self-stretch flex flex-col grow overflow-auto mt-7 -mx-3'>

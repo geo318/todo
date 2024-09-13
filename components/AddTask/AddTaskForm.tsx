@@ -1,13 +1,10 @@
+import { createTask } from '@/actions'
 import { CloseIcon } from '../icons'
 
 export const AddTaskForm = (props: { closeHandler: () => void }) => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-  }
-
   return (
     <form
-      onSubmit={handleSubmit}
+      action={createTask}
       className='flex overflow-hidden flex-col px-3 py-3 w-full rounded-xl bg-slate-50 shadow-[0px_2px_8px_rgba(106,108,224,0.26)]'
     >
       <section className='flex text-center justify-center items-center max-w-full font-bold text-slate-600 relative mb-2'>

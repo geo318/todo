@@ -3,23 +3,14 @@
 import { useState } from 'react'
 import { BinIcon, CheckMarkIcon, ChevronIcon, PenIcon } from './icons'
 import { twMerge } from 'tailwind-merge'
+import { Task } from '@/types'
 
-interface TaskItemProps {
-  title: string
-  description: string
-  inHistory?: boolean
-}
-
-export const TaskItem: React.FC<TaskItemProps> = ({
-  title,
-  description,
-  inHistory,
-}) => {
+export const TaskItem: React.FC<Task> = ({ name, description, completed }) => {
   const [isExpanded, setIsExpanded] = useState(true)
   return (
     <li className='flex overflow-hidden flex-col p-3 w-full rounded-xl bg-slate-50 shadow-[0px_2px_8px_rgba(106,108,224,0.26)]'>
       <div className='flex gap-5 justify-between text-sm font-medium text-slate-600'>
-        <h3>{title}</h3>
+        <h3>{name}</h3>
         <ChevronIcon
           onClick={() => setIsExpanded((prev) => !prev)}
           className={twMerge(
@@ -43,12 +34,12 @@ export const TaskItem: React.FC<TaskItemProps> = ({
       </div>
       <div className='flex gap-5 justify-between mt-6 w-full'>
         <div className='flex gap-2.5'>
-          {!inHistory && <PenIcon />}
+          {!completed && <PenIcon />}
           <BinIcon />
         </div>
         <div className='flex gap-1 text-xs font-medium text-slate-500'>
           <div className='grow my-auto first-letter:capitalize'>
-            {`${inHistory ? '' : 'Mark '}`}completed
+            {`${completed ? '' : 'Mark '}`}completed
           </div>
           <CheckMarkIcon />
         </div>
