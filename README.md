@@ -23,22 +23,28 @@ Before you begin, ensure you have met the following requirements:
 
 ### 1. Clone the repository
 
-```bash
+```
 git clone https://github.com/your-username/your-repository.git
+```
 
-# 1. Navigate to the project directory and install all the dependencies
+### 2. Navigate to the project directory and install all the dependencies
+```
 cd todo
 npm install
+```
 
-# 2. Run Database Migrations to ensure the database schema is up-to-date
-npm run migrate
-
-# 3. Push Database Changes to apply any schema updates to the SQLite database
-npm run db:push
-
-# 4. Start the Next.js development server
-npm run dev
-
-# The application will be running at http://localhost:3000
-
+### 3. Run Database Migrations to ensure the database schema is up-to-date
 ```bash
+npm run migrate
+```
+
+### 4. Push Database Changes to apply any schema updates to the SQLite database
+```bash
+npm run db:push
+```
+### 5. Start the Next.js development server
+```
+npm run dev
+```
+### The application will be running at http://localhost:3000
+
