@@ -89,3 +89,23 @@ export const completeTask = async (id: number) => {
     return { error: 'Failed to complete task' }
   }
 }
+
+export const clearCompletedTasks = async () => {
+  try {
+    await db.delete(task).where(eq(task.completed, 1)).execute()
+    revalidatePath(ROUTES.list.tasks)
+    revalidatePath(ROUTES.list.history)
+  } catch (error) {
+    return { error: 'Failed to clear completed tasks' }
+  }
+}
+
+export const clearIncompleteTasks = async () => {
+  try {
+    await db.delete(task).where(eq(task.completed, 0)).execute()
+    revalidatePath(ROUTES.list.tasks)
+    revalidatePath(ROUTES.list.history)
+  } catch (error) {
+    return { error: 'Failed to clear incomplete tasks' }
+  }
+}

@@ -5,6 +5,7 @@ import { HistoryIcon, TaskIcon } from './icons'
 import { usePathname } from 'next/navigation'
 import { ROUTES } from '@/config'
 import { twMerge } from 'tailwind-merge'
+import { clearCompletedTasks, clearIncompleteTasks } from '@/actions'
 
 export const Nav = () => {
   const pathname = usePathname()
@@ -44,11 +45,23 @@ export const Nav = () => {
           </li>
         </ul>
       </nav>
-      <button className='self-start text-xs font-medium text-slate-600 ml-auto mt-auto hover:underline'>
-        {pathname.includes(ROUTES.list.tasks)
-          ? 'Clear all Tasks'
-          : 'Clear all History'}
-      </button>
+      <form
+        className='ml-auto mt-auto'
+        action={
+          pathname.includes(ROUTES.list.tasks)
+            ? clearIncompleteTasks
+            : clearCompletedTasks
+        }
+      >
+        <button
+          className='self-start text-xs font-medium text-slate-600 hover:underline'
+          type='submit'
+        >
+          {pathname.includes(ROUTES.list.tasks)
+            ? 'Clear all Tasks'
+            : 'Clear all History'}
+        </button>
+      </form>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import { twMerge } from 'tailwind-merge'
 import { Task } from '@/types'
 import Link from 'next/link'
 import { ROUTES } from '@/config'
+import { completeTask, deleteTask } from '@/actions'
 
 export const TaskItem: React.FC<Task> = ({
   id,
@@ -46,13 +47,28 @@ export const TaskItem: React.FC<Task> = ({
               <PenIcon />
             </Link>
           )}
-          <BinIcon />
+          <form action={deleteTask.bind(null, id)}>
+            <button type='submit'>
+              <BinIcon />
+            </button>
+          </form>
         </div>
-        <div className='flex gap-1 text-xs font-medium text-slate-500'>
-          <div className='grow my-auto first-letter:capitalize'>
-            {`${completed ? '' : 'Mark '}`}completed
-          </div>
-          <CheckMarkIcon />
+        <div className='flex items-center gap-1 text-xs font-medium text-slate-500'>
+          <form
+            action={!completed ? completeTask.bind(null, id) : undefined}
+            className='flex justify-center'
+          >
+            <button
+              type={completed ? 'button' : 'submit'}
+              className={twMerge('flex gap-1', completed && 'cursor-default')}
+            >
+              <span className='grow my-auto first-letter:capitalize'>
+                {`${completed ? '' : 'Mark '}`}completed
+              </span>
+
+              <CheckMarkIcon />
+            </button>
+          </form>
         </div>
       </div>
     </li>
