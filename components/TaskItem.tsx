@@ -35,7 +35,10 @@ export const TaskItem: React.FC<Task> = ({
         }}
       >
         <div className='overflow-hidden'>
-          <p className='p-3 mt-8 text-xs font-semibold bg-indigo-50 text-slate-500'>
+          <p
+            className='p-3 mt-8 text-xs font-semibold bg-indigo-50 text-slate-500'
+            style={{ boxShadow: '1px 1px 4px 0px #30507D40 inset' }}
+          >
             {description}
           </p>
         </div>

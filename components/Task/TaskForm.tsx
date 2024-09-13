@@ -51,7 +51,7 @@ export const TaskForm = (props: {
             placeholder='Type task details here...'
             rows={4}
             className='overflow-hidden px-3 py-5 w-full max-w-full text-xs font-semibold bg-indigo-50 text-slate-500'
-            style={{ boxShadow: 'box-shadow: 1px 1px 4px 0px #30507D40 inset' }}
+            style={{ boxShadow: '1px 1px 4px 0px #30507D40 inset' }}
             defaultValue={props.task?.description}
             required
           />
