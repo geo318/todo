@@ -2,9 +2,9 @@ import { getTasks } from '@/actions'
 import { AddTask, AddTaskButton, EditTask, TaskItem } from '@/components'
 
 export default async function Tasks(props: {
-  searchParams: { 'edit-task': string }
+  searchParams: { 'edit-task': string; search: string }
 }) {
-  const tasks = await getTasks()
+  const tasks = await getTasks(props.searchParams?.search)
   const taskId = props.searchParams?.['edit-task']
   const task = tasks.find((task) => task.id === Number(taskId))
 

@@ -1,9 +1,11 @@
 import { getCompletedTasks } from '@/actions'
 import { TaskItem } from '@/components'
 
-export default async function History() {
-  const tasks = await getCompletedTasks()
-  
+export default async function History(props: {
+  searchParams: { search: string }
+}) {
+  const tasks = await getCompletedTasks(props.searchParams?.search)
+
   return (
     <div className='self-stretch flex flex-col grow overflow-auto mt-7 -mx-3'>
       <article className='flex gap-2 self-stretch grow pb-3'>

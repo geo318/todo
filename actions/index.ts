@@ -2,7 +2,7 @@
 
 import { ROUTES } from '@/config'
 import { db, task } from '@/database'
-import { eq } from 'drizzle-orm'
+import { and, eq, like, or } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 
 export const createTask = async (_: unknown, formData: FormData) => {
@@ -30,12 +30,12 @@ export const createTask = async (_: unknown, formData: FormData) => {
   }
 }
 
-export const getTasks = async () => {
-  return db.select().from(task).where(eq(task.completed, 0)).execute()
+export const getTasks = async (searchQuery?: string) => {
+  return getTasksQuery(0, searchQuery)
 }
 
-export const getCompletedTasks = async () => {
-  return db.select().from(task).where(eq(task.completed, 1)).execute()
+export const getCompletedTasks = async (searchQuery?: string) => {
+  return getTasksQuery(1, searchQuery)
 }
 
 export const getTask = async (id: number) => {
@@ -108,4 +108,22 @@ export const clearIncompleteTasks = async () => {
   } catch (error) {
     return { error: 'Failed to clear incomplete tasks' }
   }
+}
+
+function getTasksQuery(completed: 1 | 0, searchQuery?: string) {
+  return db
+    .select()
+    .from(task)
+    .where(
+      and(
+        searchQuery
+          ? or(
+              like(task.name, `%${searchQuery}%`),
+              like(task.description, `%${searchQuery}%`)
+            )
+          : eq(task.completed, completed),
+        eq(task.completed, completed)
+      )
+    )
+    .execute()
 }

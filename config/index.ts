@@ -7,6 +7,7 @@ class Route {
   public readonly query = {
     addTask: '?add-task',
     editTask: '?edit-task',
+    search: '?search',
   }
 
   public getRoute(route: keyof typeof this.list) {
