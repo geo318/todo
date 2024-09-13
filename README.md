@@ -33,12 +33,12 @@ cd todo
 npm install
 ```
 
-### 3. Run Database Migrations to ensure the database schema is up-to-date
+### 3. Run Database Migrations
 ```bash
 npm run migrate
 ```
 
-### 4. Push Database Changes to apply any schema updates to the SQLite database
+### 4. Push Database Changes to the SQLite database
 ```bash
 npm run db:push
 ```
