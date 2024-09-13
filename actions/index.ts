@@ -1,7 +1,9 @@
 'use server'
 
+import { ROUTES } from '@/app/config'
 import { db, task } from '@/database'
 import { eq } from 'drizzle-orm'
+import { revalidatePath } from 'next/cache'
 
 export const createTask = async (formData: FormData) => {
   const name = formData.get('name') as string
@@ -13,6 +15,7 @@ export const createTask = async (formData: FormData) => {
 
   try {
     await db.insert(task).values({ name, description }).execute()
+    revalidatePath(ROUTES.list.tasks)
   } catch (error) {
     return { error: 'Failed to create task' }
   }
@@ -44,6 +47,8 @@ export const updateTask = async (id: number, formData: FormData) => {
       .set({ name, description })
       .where(eq(task.id, id))
       .execute()
+
+    revalidatePath(ROUTES.list.tasks)
   } catch (error) {
     return { error: 'Failed to update task' }
   }
@@ -52,6 +57,8 @@ export const updateTask = async (id: number, formData: FormData) => {
 export const deleteTask = async (id: number) => {
   try {
     await db.delete(task).where(eq(task.id, id)).execute()
+    revalidatePath(ROUTES.list.tasks)
+    revalidatePath(ROUTES.list.history)
   } catch (error) {
     return { error: 'Failed to delete task' }
   }
@@ -60,6 +67,8 @@ export const deleteTask = async (id: number) => {
 export const completeTask = async (id: number) => {
   try {
     await db.update(task).set({ completed: 1 }).where(eq(task.id, id)).execute()
+    revalidatePath(ROUTES.list.tasks)
+    revalidatePath(ROUTES.list.history)
   } catch (error) {
     return { error: 'Failed to complete task' }
   }
