@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog } from '@/components'
-import { AddTaskForm } from './AddTaskForm'
+import { TaskForm } from './TaskForm'
 import { ROUTES } from '@/config'
 import { useSearchParams } from 'next/navigation'
 import { Task } from '@/types'
@@ -15,7 +15,7 @@ export const EditTask = (props: { task?: Task }) => {
       <Dialog.portal>
         <Dialog.contents
           render={({ closeHandler }) => (
-            <AddTaskForm closeHandler={closeHandler} task={props.task} />
+            <TaskForm closeHandler={closeHandler} task={props.task} />
           )}
         />
       </Dialog.portal>

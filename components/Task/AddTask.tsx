@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog } from '@/components'
-import { AddTaskForm } from './AddTaskForm'
+import { TaskForm } from './TaskForm'
 import { ROUTES } from '@/config'
 
 export const AddTask = () => {
@@ -10,7 +10,7 @@ export const AddTask = () => {
       <Dialog.portal>
         <Dialog.contents
           render={({ closeHandler }) => (
-            <AddTaskForm closeHandler={closeHandler} />
+            <TaskForm closeHandler={closeHandler} />
           )}
         />
       </Dialog.portal>

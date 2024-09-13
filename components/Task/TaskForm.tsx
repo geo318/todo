@@ -6,7 +6,7 @@ import { Task } from '@/types'
 import { useEffect } from 'react'
 import { useFormState } from 'react-dom'
 
-export const AddTaskForm = (props: {
+export const TaskForm = (props: {
   closeHandler: () => void
   task?: Task
 }) => {
