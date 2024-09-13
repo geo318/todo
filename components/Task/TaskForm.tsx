@@ -6,10 +6,7 @@ import { Task } from '@/types'
 import { useEffect } from 'react'
 import { useFormState } from 'react-dom'
 
-export const TaskForm = (props: {
-  closeHandler: () => void
-  task?: Task
-}) => {
+export const TaskForm = (props: { closeHandler: () => void; task?: Task }) => {
   const [state, action] = useFormState(
     props.task ? updateTask : createTask,
     undefined
@@ -34,7 +31,9 @@ export const TaskForm = (props: {
         <div className='text-xs text-red-500 py-2 text-left'>{state.error}</div>
       )}
       <fieldset>
-        {props.task ? <input hidden name='id' value={props.task.id} /> : null}
+        {props.task ? (
+          <input hidden name='id' defaultValue={props.task.id} />
+        ) : null}
         <input
           name='name'
           type='text'
