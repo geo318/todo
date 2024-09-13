@@ -4,4 +4,5 @@ export const task = sqliteTable('task', {
   id: int('id').primaryKey(),
   name: text('name').unique().notNull(),
   description: text('description').notNull(),
+  completed: int('completed').notNull().default(0),
 })

@@ -19,7 +19,11 @@ export const createTask = async (formData: FormData) => {
 }
 
 export const getTasks = async () => {
-  return db.select().from(task).execute()
+  return db.select().from(task).where(eq(task.completed, 0)).execute()
+}
+
+export const getCompletedTasks = async () => {
+  return db.select().from(task).where(eq(task.completed, 1)).execute()
 }
 
 export const getTask = async (id: number) => {
@@ -50,5 +54,13 @@ export const deleteTask = async (id: number) => {
     await db.delete(task).where(eq(task.id, id)).execute()
   } catch (error) {
     return { error: 'Failed to delete task' }
+  }
+}
+
+export const completeTask = async (id: number) => {
+  try {
+    await db.update(task).set({ completed: 1 }).where(eq(task.id, id)).execute()
+  } catch (error) {
+    return { error: 'Failed to complete task' }
   }
 }

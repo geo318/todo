@@ -7,5 +7,6 @@ export default {
   dbCredentials: {
     url: './database/db/sqlite.db',
   },
-  breakpoints: true,
+  verbose: true,
+  strict: true,
 } satisfies Config
