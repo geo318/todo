@@ -2,7 +2,6 @@
 import { Contents } from './Contents'
 import { SearchParamsWrapper } from './SearchParams'
 import { Header } from './Header'
-import { Footer } from './Footer'
 import Portal from './Portal'
 
 export const Dialog = {
@@ -10,5 +9,4 @@ export const Dialog = {
   portal: Portal,
   contents: Contents,
   header: Header,
-  footer: Footer,
 }

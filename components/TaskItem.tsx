@@ -4,8 +4,15 @@ import { useState } from 'react'
 import { BinIcon, CheckMarkIcon, ChevronIcon, PenIcon } from './icons'
 import { twMerge } from 'tailwind-merge'
 import { Task } from '@/types'
+import Link from 'next/link'
+import { ROUTES } from '@/config'
 
-export const TaskItem: React.FC<Task> = ({ name, description, completed }) => {
+export const TaskItem: React.FC<Task> = ({
+  id,
+  name,
+  description,
+  completed,
+}) => {
   const [isExpanded, setIsExpanded] = useState(true)
   return (
     <li className='flex overflow-hidden flex-col p-3 w-full rounded-xl bg-slate-50 shadow-[0px_2px_8px_rgba(106,108,224,0.26)]'>
@@ -26,15 +33,19 @@ export const TaskItem: React.FC<Task> = ({ name, description, completed }) => {
           transition: 'grid-template-rows 0.200s ease-in-out',
         }}
       >
-        <p className='overflow-hidden'>
-          <div className='p-3 mt-8 text-xs font-semibold bg-indigo-50 text-slate-500'>
+        <div className='overflow-hidden'>
+          <p className='p-3 mt-8 text-xs font-semibold bg-indigo-50 text-slate-500'>
             {description}
-          </div>
-        </p>
+          </p>
+        </div>
       </div>
       <div className='flex gap-5 justify-between mt-6 w-full'>
         <div className='flex gap-2.5'>
-          {!completed && <PenIcon />}
+          {!completed && (
+            <Link href={`${ROUTES.query.editTask}=${id}`}>
+              <PenIcon />
+            </Link>
+          )}
           <BinIcon />
         </div>
         <div className='flex gap-1 text-xs font-medium text-slate-500'>

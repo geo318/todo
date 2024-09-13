@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { HistoryIcon, TaskIcon } from './icons'
 import { usePathname } from 'next/navigation'
-import { ROUTES } from '@/app/config'
+import { ROUTES } from '@/config'
 import { twMerge } from 'tailwind-merge'
 
 export const Nav = () => {
