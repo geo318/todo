@@ -13,16 +13,16 @@ body {
 }
 
 .modal {
-  animation: modal 150ms ease-in-out;
+  animation: modal 150ms ease-out;
 }
 
 @keyframes modal {
   from {
-    transform: translateY(10%);
+    transform: translateX(100%);
     opacity: 0.5;
   }
   to {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
   }
 }
